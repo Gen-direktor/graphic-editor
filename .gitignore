@@ -2,8 +2,9 @@
 .vscode/
 .idea/
 
-# Зависимости
+# Node
 node_modules/
+package-lock.json
 
 # Системные файлы
 .DS_Store
