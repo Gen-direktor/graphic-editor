@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интеллект-карта</title>
+    
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="static/css/styles.css">
+    
+    <!-- Иконка приложения -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <!-- Основной контейнер -->
+    <div class="container">
+        <!-- Шапка сайта -->
+        <header>
+            <h1>Интеллект-карта</h1>
+            <p>Создавайте и управляйте своими идеями</p>
+        </header>
+
+        <!-- Основное содержимое -->
+        <main>
+            <!-- Контейнер для карты -->
+            <div id="mindmap">
+                <!-- Начальная структура карты -->
+                <ul>
+                    <li>
+                        <span contenteditable="true">Основная тема</span>
+                        <div class="node-controls">
+                            <button class="btn btn-add" onclick="addNode(this)">+</button>
+                            <button class="btn btn-edit" onclick="editNode(this)">Редактировать</button>
+                            <button class="btn btn-delete" onclick="deleteNode(this)">×</button>
+                        </div>
+                        <ul></ul>
+                    </li>
+                </ul>
+            </div>
+        </main>
+
+        <!-- Панель инструментов -->
+        <div class="toolbar">
+            <button class="btn btn-primary" onclick="addRootNode()">Добавить тему</button>
+            <button class="btn btn-save" onclick="saveMap()">Сохранить</button>
+            <button class="btn btn-load" onclick="loadMap()">Загрузить</button>
+            <button class="btn btn-export" onclick="exportMap()">Экспорт</button>
+        </div>
+    </div>
+
+    <!-- Подключение скриптов -->
+    <script src="static/js/main.js"></script>
+</body>
+</html>
 
