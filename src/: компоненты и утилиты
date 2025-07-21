@@ -1,1 +1,10 @@
+src/
+├── components/
+│   ├── MindMap.js
+│   └── Node.js
+├── utils/
+│   ├── storage.js
+│   └── helpers.js
+├── index.js
+└── main.js
 
