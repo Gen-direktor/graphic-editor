@@ -1,6 +1,26 @@
 # mindmapbot
 Давайте рассмотрим, как можно работать с проектом на GitHub без локальной установки Git:
 
+mindmap-bot/
+├── package.json
+├── .eslintrc.json
+├── .prettierrc
+├── webpack.config.js
+├── src/
+│   ├── index.js
+│   ├── main.js
+│   ├── components/
+│   │   ├── MindMap.js
+│   │   └── Node.js
+│   └── utils/
+│       ├── storage.js
+│       └── helpers.js
+├── public/
+│   └── index.html
+├── dist/
+├── .gitignore
+└── README.md
+
 ### Шаг 1: Создание репозитория
 
 1. **Регистрация на GitHub**:
