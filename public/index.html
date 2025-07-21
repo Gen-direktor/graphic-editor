@@ -2,10 +2,33 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Интеллект-карта</title>
+  <title>Graphic Editor</title>
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-  <div id="root"></div>
-  <script src="bundle.js"></script>
+  <div class="toolbar">
+    <!-- Панель инструментов -->
+    <div class="tool-group">
+      <button id="pencilTool" class="tool-button active">✏️ Карандаш</button>
+      <button id="brushTool" class="tool-button">🖌️ Кисть</button>
+      <button id="eraserTool" class="tool-button">🧹 Ластик</button>
+    </div>
+    <div class="tool-group">
+      <button id="addLayer">➕ Слой</button>
+      <button id="exportBtn">💾 Экспорт</button>
+    </div>
+  </div>
+
+  <div class="canvas-container">
+    <canvas id="mainCanvas"></canvas>
+  </div>
+
+  <div class="layer-panel">
+    <div id="layersList"></div>
+  </div>
+
+  <script src="scripts/layers.js"></script>
+  <script src="scripts/webgl/renderer.js"></script>
+  <script src="scripts/app.js"></script>
 </body>
 </html>
