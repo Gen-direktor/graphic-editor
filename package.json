@@ -2,12 +2,20 @@
   "name": "mindmap-bot",
   "version": "1.0.0",
   "description": "Приложение для создания и управления интеллект-картами",
+  "type": "module",
   "main": "src/index.js",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "private": true,
   "scripts": {
-    "start": "npm run dev",
+    "start": "webpack serve",
     "dev": "webpack serve --mode development",
     "build": "webpack --mode production",
-    "test": "echo \"Tests not implemented\""
+    "test": "echo \"Tests not implemented\"",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "keywords": [
     "mindmap",
@@ -26,7 +34,10 @@
     "style-loader": "^3.3.1",
     "babel-loader": "^8.2.3",
     "@babel/core": "^7.18.9",
-    "@babel/preset-env": "^7.18.9"
+    "@babel/preset-env": "^7.18.9",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.6.0",
+    "prettier": "^2.8.4"
   },
   "dependencies": {
     "lodash": "^4.17.21",
@@ -38,4 +49,3 @@
     "not ie <= 11"
   ]
 }
-
