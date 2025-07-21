@@ -2,7 +2,7 @@
   "name": "mindmap-bot",
   "version": "1.0.0",
   "description": "Приложение для создания и управления интеллект-картами",
-  "main": "index.html",
+  "main": "src/index.js",
   "scripts": {
     "start": "npm run dev",
     "dev": "webpack serve --mode development",
