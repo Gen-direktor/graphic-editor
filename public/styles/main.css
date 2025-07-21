@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 20px;
+  background: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+.toolbar {
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 8px 15px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+canvas {
+  border: 1px solid #ccc;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
