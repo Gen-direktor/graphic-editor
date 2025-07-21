@@ -1,6 +1,6 @@
 # Графический редактор
 
-[![Demo](https://img.shields.io/badge/demo-online-green)](https://ваш-ник.github.io/graphic-editor)
+[![Demo](https://img.shields.io/badge/demo-online-green)](https://gen-direktor.github.io/graphic-editor)
 
 Профессиональный графический редактор с поддержкой:
 - Бесконечного холста
@@ -11,5 +11,5 @@
 ## Установка
 
 ```bash
-git clone https://github.com/ваш-ник/graphic-editor.git
+git clone https://github.com/gen-direktor/graphic-editor.git
 cd graphic-editor
