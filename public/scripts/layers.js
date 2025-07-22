@@ -1,47 +1,41 @@
-class LayerManager {
-  constructor() {
-    this.layers = [];
-    this.currentLayerIndex = 0;
-  }
-
-  createLayer(name = `Слой ${this.layers.length + 1}`) {
-    const layer = {
-      name,
-      canvas: document.createElement('canvas'),
-      ctx: null,
-      visible: true
-    };
-    layer.canvas.width = 1024;
-    layer.canvas.height = 768;
-    layer.ctx = layer.canvas.getContext('2d');
-    this.layers.push(layer);
-  }
-
-  getCurrentLayer() {
-    return this.layers[this.currentLayerIndex];
-  }
-}
-
-export const layerManager = new LayerManager();
-class LayerManager {
-  constructor() {
-    this.cache = new Map();
-    this.historyStack = [];
-  }
-
-  cacheLayer(layer) {
-    const key = `layer-${Date.now()}`;
-    this.cache.set(key, {
-      data: layer.ctx.getImageData(0, 0, layer.canvas.width, layer.canvas.height),
-      timestamp: Date.now()
-    });
-    return key;
-  }
-
-  restoreLayer(key) {
-    if(this.cache.has(key)) {
-      const { data } = this.cache.get(key);
-      this.getCurrentLayer().ctx.putImageData(data, 0, 0);
+export class LayerManager {
+    constructor(canvas) {
+        this.layers = [];
+        this.currentLayerIndex = 0;
+        this.cache = new Map();
+        
+        this.initBaseLayer(canvas);
     }
-  }
+
+    initBaseLayer(canvas) {
+        this.layers.push({
+            canvas: canvas,
+            ctx: canvas.getContext('2d'),
+            visible: true,
+            locked: false
+        });
+    }
+
+    createLayer() {
+        const newCanvas = document.createElement('canvas');
+        newCanvas.width = this.layers[0].canvas.width;
+        newCanvas.height = this.layers[0].canvas.height;
+        
+        this.layers.push({
+            canvas: newCanvas,
+            ctx: newCanvas.getContext('2d'),
+            visible: true,
+            locked: false
+        });
+    }
+
+    cacheCurrentLayer() {
+        const layer = this.getCurrentLayer();
+        const imageData = layer.ctx.getImageData(0, 0, layer.canvas.width, layer.canvas.height);
+        this.cache.set(Date.now(), imageData);
+    }
+
+    getCurrentLayer() {
+        return this.layers[this.currentLayerIndex];
+    }
 }

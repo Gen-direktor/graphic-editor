@@ -1,36 +1,50 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Графический редактор</title>
-  <link rel="stylesheet" href="styles/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Graphic Editor</title>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-  <div class="toolbar">
-    <button id="pencil">Карандаш</button>
-    <button id="brush">Кисть</button>
-    <button id="eraser">Ластик</button>
-  </div>
-  <div class="advanced-controls">
-  <div class="brush-settings">
-    <input type="range" id="brushSize" min="1" max="50" value="5">
-    <input type="color" id="brushColor">
-    <select id="blendMode">
-      <option value="multiply">Multiply</option>
-      <option value="overlay">Overlay</option>
-    </select>
-  </div>
-  
-  <div class="layer-controls">
-    <button id="newLayer">+ Слой</button>
-    <button id="mergeLayers">Объединить слои</button>
-  </div>
-</div>
+    <div class="canvas-container">
+        <canvas id="mainCanvas"></canvas>
+    </div>
 
-  <canvas id="mainCanvas" width="1024" height="768"></canvas>
-  
-  <script src="scripts/layers.js"></script>
-  <script src="scripts/webgl/renderer.js"></script>
-  <script src="scripts/app.js"></script>
+    <!-- Desktop Toolbar -->
+    <div class="toolbar">
+        <div class="tool-group">
+            <button id="pencil">✏️</button>
+            <button id="brush">🖌️</button>
+            <button id="eraser">🧹</button>
+        </div>
+        <div class="tool-settings">
+            <input type="range" id="brushSize" min="1" max="50" value="5">
+            <input type="color" id="brushColor">
+        </div>
+    </div>
+
+    <!-- Mobile Toolbar -->
+    <div class="mobile-toolbar">
+        <button id="mobileMenu">☰</button>
+        <div class="mobile-options" id="mobileOptions">
+            <button class="tool-btn" data-tool="pencil">✏️</button>
+            <button class="tool-btn" data-tool="brush">🖌️</button>
+            <button class="tool-btn" data-tool="eraser">🧹</button>
+        </div>
+    </div>
+
+    <!-- Layer Controls -->
+    <div class="layer-controls">
+        <button id="newLayer">+ Слой</button>
+        <button id="mergeLayers">Объединить</button>
+        <div id="layersList" class="layers-list"></div>
+    </div>
+
+    <script src="scripts/layers.js"></script>
+    <script src="scripts/optimization/quad-tree.js"></script>
+    <script src="scripts/optimization/lod-manager.js"></script>
+    <script src="scripts/workers/image-processor.js"></script>
+    <script src="scripts/app.js" type="module"></script>
 </body>
 </html>
