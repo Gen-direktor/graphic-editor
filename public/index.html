@@ -11,7 +11,22 @@
     <button id="brush">Кисть</button>
     <button id="eraser">Ластик</button>
   </div>
+  <div class="advanced-controls">
+  <div class="brush-settings">
+    <input type="range" id="brushSize" min="1" max="50" value="5">
+    <input type="color" id="brushColor">
+    <select id="blendMode">
+      <option value="multiply">Multiply</option>
+      <option value="overlay">Overlay</option>
+    </select>
+  </div>
   
+  <div class="layer-controls">
+    <button id="newLayer">+ Слой</button>
+    <button id="mergeLayers">Объединить слои</button>
+  </div>
+</div>
+
   <canvas id="mainCanvas" width="1024" height="768"></canvas>
   
   <script src="scripts/layers.js"></script>

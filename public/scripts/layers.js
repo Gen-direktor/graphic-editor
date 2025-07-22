@@ -23,3 +23,25 @@ class LayerManager {
 }
 
 export const layerManager = new LayerManager();
+class LayerManager {
+  constructor() {
+    this.cache = new Map();
+    this.historyStack = [];
+  }
+
+  cacheLayer(layer) {
+    const key = `layer-${Date.now()}`;
+    this.cache.set(key, {
+      data: layer.ctx.getImageData(0, 0, layer.canvas.width, layer.canvas.height),
+      timestamp: Date.now()
+    });
+    return key;
+  }
+
+  restoreLayer(key) {
+    if(this.cache.has(key)) {
+      const { data } = this.cache.get(key);
+      this.getCurrentLayer().ctx.putImageData(data, 0, 0);
+    }
+  }
+}
